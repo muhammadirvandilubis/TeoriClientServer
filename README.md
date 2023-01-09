@@ -25,8 +25,25 @@ Configuration
 * Kode : HelloWorldConfiguration
 ![Img 2](image/2.PNG)
 
+Membuat Application Context
+* Selanjutnya, setelah membuat Class Configuration, kita bisa menggunakan class AnnotationConfigApplicationContext untuk membuat Application Context
+* [https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/AnnotationConfigApplicationContext.html] 
+* Kode : Membuat Application Context
+![Img 3](image/3.PNG)
 
 
+### Singleton
+* Singleton adalah salah satu Design Patterns untuk pembuatan objek, dimana sebuah object hanya dibuat satu kali saja
+* Dan ketika kita membutuhkan object tersebut, kita hanya akan menggunakan object yang sama * [https://refactoring.guru/design-patterns/singleto] 
+
+Membuat Singleton di Java
+* Ada banyak cara membuat singleton object di Java
+* Cara yang paling sering digunakan adalah membuat class yang berisikan static method untuk membuat object dirinya sendiri
+* Selanjutnya constructor nya dibuat private, agar tidak bisa diakses dari luar
+* Sehingga user terpaksa menggunakan method static tersebut ketika ingin membuat object nya
+* Kode : Singleton Class
+![Img 4](image/4.PNG)
+![image](https://user-images.githubusercontent.com/113462342/211357007-912d44ff-18be-4dd5-895f-99b6619192a1.png)
 
 
 
