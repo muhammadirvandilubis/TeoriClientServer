@@ -23,7 +23,7 @@ Configuration
 * Untuk membuat ApplicationContext menggunakan Annotation, pertama kita bisa perlu membuat Configuration class
 * Configuration Class adalah sebuah class yang terdapat annotation @Configuration pada class tersebut
 * Kode : HelloWorldConfiguration
-![Img 2](image/2.png)
+![Img 2](image/2.PNG)
 
 
 
