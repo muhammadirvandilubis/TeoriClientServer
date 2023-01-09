@@ -46,16 +46,88 @@ Membuat Singleton di Java
 ![image](https://user-images.githubusercontent.com/113462342/211357007-912d44ff-18be-4dd5-895f-99b6619192a1.png)
 
 
+### Bean
+* Saat sebuah object kita masukkan kedalam Spring Container IoC, maka kita sebut object tersebut adalah Bean
+* Secara default, bean merupakan singleton, artinya jika kita mengakses bean yang sama, maka dia akan mengembalikan object yang sama. Kita juga bisa mengubahnya jika tidak ingin singleton, nanti akan kita bahas di materi tersendiri
+
+Membuat Bean
+* Untuk membuat bean, kita bisa membuat sebuah method di dalam class Configuration
+* Selanjutnya nama method tersebut akan menjadi nama bean nya, dan return object nya menjadi object bean nya
+* Method tersebut perlu kita tambahkan annotation @Bean, untuk menandakan bahwa itu adalah bean
+* Secara otomatis Spring akan mengeksekusi method tersebut, dan return value nya akan dijadikan object bean secara otomatis, dan disimpan di container IoC
+* Kode : Membuat Bean
+![image](https://user-images.githubusercontent.com/113462342/211357765-63225f38-3e36-428a-aaf8-b71b8a9a438c.png)
 
 
+### Mengakses Bean
+* Setelah kita membuat bean, secara otomatis semua object akan di-manage oleh Application Context
+* Untuk mengakses bean, kita bisa menggunakan method getBean milik Application Context
+* Kode : Mengakses Bean
+![image](https://user-images.githubusercontent.com/113462342/211358229-fdc1bfc5-7ff8-44fb-b00a-93dc2afcf25b.png)
 
 
+### Duplicate Bean
+* Di Spring, kita bisa mendaftarkan beberapa bean dengan tipe yang sama
+* Namun perlu diperhatikan, jika kita membuat bean dengan tipe data yang sama, maka kita harus menggunakan nama bean yang berbeda
+* Selain itu, saat kita mengakses bean nya, kita wajib menyebutkan nama bean nya, karena jika tidak, Spring akan bingung harus mengakses bean yang mana
+* Kode : Duplicate Bean
+![image](https://user-images.githubusercontent.com/113462342/211358604-e4b2ab4f-7e7d-4a07-9efd-b852aa65caea.png)
+ 
+* Kode : Mengakses Duplicate Bean
+![image](https://user-images.githubusercontent.com/113462342/211359005-911ffb4e-2f35-47e0-be28-4540898aebe4.png)
 
 
+### Primary Bean
+* Jika terjadi duplicate bean, selain kita sebSecarautkan nama bean nya ketika ingin mengakses bean nya, kita  juga bisa pilih salah satu bean menjadi primary
+* Dengan memilih salah satunya menjadi primary, secara otomatis jika kita mengakses bean tanpa menyebutkan nama bean nya, secara otomatis primary nya yang akan dipilih
+* Untuk memilih primary bean, kita bisa tambahkan annotaiton @Primary
+* Kode : Primary Bean
+ ![image](https://user-images.githubusercontent.com/113462342/211359460-c8216f0e-850d-431d-82e5-c4cb3dea738d.png)
+ 
+* Kode : Mengakses Primary Bean
+![image](https://user-images.githubusercontent.com/113462342/211359830-b10ed9ca-358a-4179-8fae-9b19f4471710.png)
 
 
+### Mengubah Nama Bean
+* Secara default, nama bean diambil dari nama method
+* Namun kadang-kadang kita tidak ingin menggunakan nama method untuk nama bean
+* Saat project kita sudah besar, kadang bisa jadi nama method sama, walaupun isi bean nya berbeda, dan di Spring, nama bean itu unik, tidak boleh sama
+* Jika kita ingin mengubah nama bean, kita bisa menggunakan method value() milik annotation @Bean
+* Kode : Mengubah Nama Bean
+ ![image](https://user-images.githubusercontent.com/113462342/211360287-bc0400fc-cb1a-44c7-81c1-105465f729aa.png)
+
+* Kode : Mengakses Bean
+![image](https://user-images.githubusercontent.com/113462342/211360392-88445e79-022d-431f-8c54-fd70ad55a398.png)
 
 
+### Dependency Injection
+* Saat kita membuat object, sudah pasti kita sering membuat object yang tergantung dengan object lain
+* Dependency Injection (DI) adalah teknik dimana kita bisa mengotomatisasi proses pembuatan object yang tergantung dengan object lain, atau kita sebut dependencies
+* Dependencies akan secara otomatis di-inject (dimasukkan) kedalam object yang membutuhkannya
+* Spring Framework sejak awal dibilang sebuah framework IoC yang memang cara kerjanya menggunakan 
+
+
+#### Tanpa Dependency Injection
+* Sebenarnya tanpa Dependency Injection pun, kita tetap bisa membuat aplikasi
+* Namun ketika relasi antar dependencies sangat kompleks, agak ribet untuk kita melakukannya jika harus manual
+* Oleh karena itu, penggunaan Dependency Injection framework seperti Spring sangat membantu sekali
+* Kode : Class FoorBar
+ ![image](https://user-images.githubusercontent.com/113462342/211361175-bc1ff322-0a1a-438b-8309-5eb478b554c8.png)
+
+* Kode : Tanpa Dependency Injection
+![image](https://user-images.githubusercontent.com/113462342/211361303-553da7fe-8ace-4699-82d1-8d51f4a4ef16.png)
+
+
+#### Spring Dependency Injection
+* Spring sejak awal dikenal dengan framework untuk Dependency Injection
+* Ketika kita membuat method untuk bean di Spring, kita bisa menambahkan parameter 
+* Secara otomatis Spring akan mencarikan bean lain yang sesuai dengan tipe parameter tersebut
+* Jika ternyata tidak ada bean yang cocok, maka secara otomatis akan terjadi error
+* Dan jika ternyata terdapat bean lebih dari satu, secara otomatis akan terjadi error, kecuali terdapat primary bean
+* Kode : Bean Dependency Injection
+ ![image](https://user-images.githubusercontent.com/113462342/211361915-0712a030-5696-4c42-839a-6651cca52c3c.png)
+
+* Kode : Menggunakan Dependency Injection
 
 
 
