@@ -127,7 +127,7 @@ Membuat Bean
 * Kode : Bean Dependency Injection
  ![image](https://user-images.githubusercontent.com/113462342/211361915-0712a030-5696-4c42-839a-6651cca52c3c.png)
 
-* Kode : Menggunakan Dependency Injection
+* Kode : Menggunakan Dependency Injectio
 
 
 
